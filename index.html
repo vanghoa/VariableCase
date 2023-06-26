@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="index.js" defer></script>
+        <link rel="stylesheet" href="index.css" />
+        <style>
+            #cover :nth-child(n + 4) {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="title">
+            <span>V</span><span>a</span><span>r</span><span>i</span
+            ><span>a</span><span>b</span><span>l</span><span>e</span
+            ><span>-</span><span>C</span><span>a</span><span>s</span
+            ><span>e</span><span> </span><span>f</span><span>o</span
+            ><span>n</span><span>t</span><span> </span><span>b</span
+            ><span>y</span><span> </span><span>B</span><span>a</span
+            ><span>o</span><span> </span><span>A</span><span>n</span
+            ><span>h</span>
+        </h1>
+        <div class="flex">
+            <div id="capcheck">
+                <div><span>C</span>APS-<span>L</span>OCK STATUS</div>
+                <div class="trans_font_variation">
+                    <span>C</span>APS-<span>L</span>OCK <span>I</span>S O<span
+                    ></span>
+                </div>
+            </div>
+            <div id="slidecontainer" class="trans_font_variation">
+                <span class="cap">F</span><span>O</span><span>N</span
+                ><span>T</span><span> </span><span>S</span><span>I</span
+                ><span>Z</span><span>E</span>
+                <input
+                    type="range"
+                    min="3"
+                    max="11"
+                    value="4"
+                    class="slider"
+                    id="myRange"
+                />
+            </div>
+            <div
+                id="turnoffcover"
+                class="togglebutton"
+                onclick="turnoffcover(this)"
+            >
+                <div class="trans_font_variation">
+                    <span>T</span>UR<span>N</span> O<span id="onoff"></span>
+                    <span>C</span>OV<span>E</span>R
+                </div>
+            </div>
+            <div
+                id="turnonnotes"
+                class="togglebutton"
+                onclick="turnonnotes(this)"
+            >
+                <div class="trans_font_variation">
+                    <span id="notes"></span> N<span>O</span>T<span>E</span>S
+                </div>
+            </div>
+            <a href="Variablecase2020-CaseVF.ttf">
+                <div>DOWNLOAD THE TTF FONT</div>
+            </a>
+        </div>
+        <div id="textbox">
+            <div id="textarea" spellcheck="false" contenteditable="true">
+                abcdefghijklmnopqrstuvwxyz
+                <div>ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+                <div>1234567890 .,:;!?-'</div>
+            </div>
+            <div id="cover">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <p>
+            Variable Case is a modular font created for the Experimental Modular
+            Typography class taught by Darius Ou at LASALLE College of the Arts.
+            Initially, I was asked to find a fashion designer and create a
+            modular typeface based on that designer, their practice/philosophy
+            or one of their works. The selected designer is Martin Margiela and
+            what intrigues me is his Spring 1996 Collection. One of the themes
+            behind that collection is the interplay between past and present,
+            embodied in a single garment. By the same token, my typeface
+            conceptually focuses on the relationship between uppercase and
+            lowercase characters. Functionwise, different letter case variations
+            can emphasize hierarchy, use for abbreviation, control reading flow,
+            act as punctuation, and more, all with the goal of differentiation.
+            This typeface unites both cases into a single silhouette; and the
+            differentiation is achieved simply through moving the character up
+            or down.
+        </p>
+        <p>
+            One key design aspect is the use of lowercase shapes for the tops of
+            characters. This involves initially designing each character in
+            lowercase with a consistent x-height, followed by the addition of
+            descenders to create the impression of uppercase letters. This way,
+            when a portion of the text is covered, it will still display the
+            conventional look of the capitals taller than the lowercase.
+        </p>
+        <p>
+            Besides the default uppercase and lowercase, the typeface also has a
+            variable function allowing custom case (mostly for display purpose)
+        </p>
+    </body>
+</html>

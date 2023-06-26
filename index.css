@@ -1,0 +1,256 @@
+@font-face {
+    font-family: 'variablecase';
+    src: url('Variablecase2020-CaseVF.ttf');
+}
+
+:root {
+    --rownum: 2;
+    --txtarea_fontsz: 4;
+}
+
+html {
+    font-size: 20px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-rendering: geometricPrecision;
+}
+
+body {
+    padding: 20px;
+}
+
+.flex,
+h1,
+#textbox {
+    font-weight: normal;
+    font-family: variablecase;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    position: relative;
+    margin-bottom: 20px;
+    max-width: 800px;
+}
+
+#cover {
+    width: 100%;
+    height: max-content;
+    padding: 10px 1px;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    display: grid;
+    grid-template-rows: repeat(
+        var(--rownum),
+        calc(var(--txtarea_fontsz) * 1rem)
+    );
+    grid-template-columns: 100%;
+    justify-items: stretch;
+    align-items: end;
+    pointer-events: none;
+    opacity: 100%;
+    transition: opacity 0.5s;
+}
+
+#cover * {
+    background-color: white;
+    position: relative;
+    top: calc(0.05rem * var(--txtarea_fontsz) / 3);
+    height: calc(0.945rem * var(--txtarea_fontsz) / 3);
+    box-shadow: 0px -9px 15px -7px rgba(0, 0, 0, 0.7);
+}
+
+#textarea {
+    font-size: calc(var(--txtarea_fontsz) * (2 / 3) * 1rem);
+    line-height: calc(var(--txtarea_fontsz) * 1rem);
+    padding: 10px;
+    outline: 1px black solid;
+}
+
+#textarea:hover ~ #cover {
+    opacity: 50%;
+}
+
+#textarea ~ #cover.off {
+    opacity: 0%;
+}
+
+#textarea span {
+    transition: font-variation-settings 1s, background-color 1s;
+    font-variation-settings: 'case' 0;
+    background-color: rgb(221, 221, 221);
+}
+
+#textarea span.cap {
+    font-variation-settings: 'case' 102;
+    background-color: white;
+}
+
+.flex {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.flex > * {
+    padding: 0.75rem;
+    padding-top: 0;
+    background-color: aqua;
+}
+
+#capcheck {
+    background-color: rgb(200, 200, 200);
+    color: rgba(0, 0, 0, 0.32);
+    padding-top: 0.55rem;
+    transition: background-color 0.5s, color 0.5s;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+#capcheck.ready.on {
+    background-color: rgb(0, 206, 79);
+    color: rgb(255, 255, 255);
+}
+
+#capcheck.ready > :first-child,
+#capcheck > :nth-child(2) {
+    display: none;
+}
+
+#capcheck > :first-child,
+#capcheck.ready > :nth-child(2) {
+    display: block;
+}
+
+#capcheck.on.ready > div,
+#capcheck > div {
+    font-variation-settings: 'case' 0;
+}
+
+#capcheck.ready > div > span,
+#capcheck.ready > div,
+#capcheck > div > span,
+h1 span:hover {
+    font-variation-settings: 'case' 102;
+}
+
+#capcheck > :nth-child(2) > span:last-child:after {
+    content: 'FF';
+    font-variation-settings: 'case' 0;
+}
+
+#capcheck.on > :nth-child(2) > span:last-child::after {
+    content: 'N';
+    font-variation-settings: 'case' 102;
+}
+
+.togglebutton,
+.flex a {
+    cursor: pointer;
+    transition: padding-top 0.5s;
+    box-shadow: 0px -5px 8px 2.5px rgba(0, 0, 0, 0.192) inset;
+    border-radius: 8px;
+}
+
+.togglebutton:active,
+.flex a:active {
+    box-shadow: 0px 5px 8px 2.5px rgba(0, 0, 0, 0.192) inset;
+    padding-bottom: 0.25rem;
+}
+
+.togglebutton:active > div,
+.flex a:active > div {
+    padding-top: 0.5rem;
+}
+
+.togglebutton span {
+    font-variation-settings: 'case' 0;
+}
+
+.togglebutton.off {
+    padding-top: 0.55rem;
+}
+
+.togglebutton.off span {
+    font-variation-settings: 'case' 102;
+}
+
+.togglebutton #onoff::after {
+    content: 'FF';
+}
+
+.togglebutton.off #onoff::after {
+    content: 'N';
+}
+
+.togglebutton #notes::after {
+    content: 'SHOW';
+}
+
+.togglebutton.off #notes::after {
+    content: 'HIDE';
+}
+
+.flex a {
+    background-color: orange;
+    color: black;
+    text-decoration: none;
+}
+
+#slidecontainer {
+    background-color: rgb(255, 0, 153);
+    color: white;
+    position: relative;
+    width: max-content;
+    padding-top: 0.55rem;
+    font-variation-settings: 'case' 0;
+}
+
+#slidecontainer input {
+    position: absolute;
+    left: 0.75rem;
+    top: 0;
+    width: calc(100% - 0.75rem * 2);
+    height: 100%;
+}
+
+.trans_font_variation,
+.trans_font_variation *,
+#capcheck > :nth-child(2) > span:last-child:after {
+    transition: font-variation-settings 0.5s;
+}
+
+#slidecontainer span.cap {
+    font-variation-settings: 'case' 102;
+}
+
+#turnonnotes {
+    background-color: rgb(200, 255, 0);
+}
+
+body p {
+    display: none;
+}
+
+body.shownotes p {
+    display: block;
+}
