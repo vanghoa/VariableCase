@@ -12,6 +12,8 @@ const editor = $('#textarea');
 const style = $('style');
 const capcheck = $('#capcheck');
 const cover = $('#cover');
+const turnoffcover_ = { span: $$('#turnoffcover span'), check: true };
+const turnonnotes_ = { span: $$('#turnonnotes span'), check: true };
 const sliderdiv = $('#slidecontainer');
 const sliderpan = $$('#slidecontainer span');
 const slider = $('#myRange');
@@ -137,19 +139,6 @@ async function inputevent() {
         insertstring += 'x';
     }
 
-    /*
-    console.log(
-        `"${collapseWhiteSpace(editor.textContent)}"`,
-        collapseWhiteSpace(editor.textContent).length,
-        `"${prevstrings}"`,
-        prevstrings.length,
-        Math.floor(pos.pos) -
-            (prevstrings_offset < 0 ? 0 : prevstrings_offset),
-        prevstrings_offset,
-        insertstring
-    );
-    */
-
     prevstrings = prevstrings.splice(
         Math.floor(pos.pos) - (prevstrings_offset < 0 ? 0 : prevstrings_offset),
         prevstrings_offset < 0 ? -prevstrings_offset : 0,
@@ -251,9 +240,22 @@ document.addEventListener('keyup', testCapsLock);
 function turnoffcover(a) {
     cover.classList.toggle('off');
     a.classList.toggle('off');
+    togglebutton(turnoffcover_);
 }
 
 function turnonnotes(a) {
     a.classList.toggle('off');
     document.body.classList.toggle('shownotes');
+    togglebutton(turnonnotes_);
+}
+
+function togglebutton(button) {
+    if (button.check) {
+        for (let i = 0; i < button.span.length; i++) {
+            button.span[i].classList[Math.random() > 0.5 ? 'add' : 'remove'](
+                'cap'
+            );
+        }
+    }
+    button.check = !button.check;
 }

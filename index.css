@@ -6,6 +6,7 @@
 :root {
     --rownum: 2;
     --txtarea_fontsz: 4;
+    --ratio: calc(var(--txtarea_fontsz) / 4);
 }
 
 html {
@@ -17,10 +18,13 @@ html {
     margin: 0;
     padding: 0;
     text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
     padding: 20px;
+    background-color: white;
 }
 
 .flex,
@@ -69,9 +73,10 @@ p {
 #cover * {
     background-color: white;
     position: relative;
-    top: calc(0.05rem * var(--txtarea_fontsz) / 3);
-    height: calc(0.945rem * var(--txtarea_fontsz) / 3);
-    box-shadow: 0px -9px 15px -7px rgba(0, 0, 0, 0.7);
+    top: calc(0.09rem * var(--txtarea_fontsz) / 3);
+    height: calc(1rem * var(--txtarea_fontsz) / 3);
+    box-shadow: 0px calc(var(--ratio) * -10px) calc(var(--ratio) * 13px)
+        calc(var(--ratio) * -10px) rgba(0, 0, 0, 0.6);
 }
 
 #textarea {
@@ -92,7 +97,7 @@ p {
 #textarea span {
     transition: font-variation-settings 1s, background-color 1s;
     font-variation-settings: 'case' 0;
-    background-color: rgb(221, 221, 221);
+    background-color: rgb(255, 224, 243);
 }
 
 #textarea span.cap {
@@ -110,12 +115,12 @@ p {
 .flex > * {
     padding: 0.75rem;
     padding-top: 0;
-    background-color: aqua;
+    background-color: rgb(123, 255, 0);
 }
 
 #capcheck {
-    background-color: rgb(200, 200, 200);
-    color: rgba(0, 0, 0, 0.32);
+    background-color: rgb(255, 224, 243);
+    color: rgb(255, 113, 201);
     padding-top: 0.55rem;
     transition: background-color 0.5s, color 0.5s;
     -webkit-touch-callout: none; /* iOS Safari */
@@ -127,7 +132,7 @@ p {
 }
 
 #capcheck.ready.on {
-    background-color: rgb(0, 206, 79);
+    background-color: rgb(255, 0, 157);
     color: rgb(255, 255, 255);
 }
 
@@ -190,7 +195,7 @@ h1 span:hover {
     padding-top: 0.55rem;
 }
 
-.togglebutton.off span {
+.togglebutton.off span.cap {
     font-variation-settings: 'case' 102;
 }
 
@@ -211,13 +216,13 @@ h1 span:hover {
 }
 
 .flex a {
-    background-color: orange;
+    background-color: rgb(255, 230, 0);
     color: black;
     text-decoration: none;
 }
 
 #slidecontainer {
-    background-color: rgb(255, 0, 153);
+    background-color: rgb(136, 1, 255);
     color: white;
     position: relative;
     width: max-content;
@@ -231,6 +236,29 @@ h1 span:hover {
     top: 0;
     width: calc(100% - 0.75rem * 2);
     height: 100%;
+    -webkit-appearance: none; /* Override default CSS styles */
+    appearance: none;
+    background: transparent;
+    outline: none;
+}
+
+#slidecontainer input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12.5%;
+    height: 100%;
+    opacity: 0%;
+}
+
+#slidecontainer input:focus {
+    outline: none;
+}
+
+#slidecontainer input::-moz-range-thumb {
+    appearance: none;
+    width: 12.5%;
+    height: 100%;
+    opacity: 0%;
 }
 
 .trans_font_variation,
@@ -244,7 +272,7 @@ h1 span:hover {
 }
 
 #turnonnotes {
-    background-color: rgb(200, 255, 0);
+    background-color: rgb(0, 251, 255);
 }
 
 body p {
@@ -253,4 +281,15 @@ body p {
 
 body.shownotes p {
     display: block;
+}
+
+#slidecontainer span.cap {
+    box-shadow: 0px -5px 8px 2.5px rgba(0, 0, 0, 0.516) inset;
+    border-radius: 8px;
+    padding: 0 4px;
+}
+h1 span:hover {
+    box-shadow: 0px -5px 8px 2.5px rgba(0, 0, 0, 0.199) inset;
+    border-radius: 8px;
+    padding: 0 4px;
 }
