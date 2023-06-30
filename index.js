@@ -69,6 +69,8 @@ slider.oninput = function () {
 };
 
 editor.addEventListener('input', inputevent, false);
+document.addEventListener('keydown', testCapsLock);
+document.addEventListener('keyup', testCapsLock);
 
 // get the cursor position from .editor start
 function getCursorPosition(parent, node, offset, stat) {
@@ -225,17 +227,14 @@ function calculatecover() {
 function testCapsLock(event) {
     if (event.code === 'CapsLock') {
         capcheck.classList.add('ready');
-        let isCapsLockOn = event.getModifierState('CapsLock');
-        if (isCapsLockOn) {
-            capcheck.classList.add('on');
-        } else {
-            capcheck.classList.remove('on');
-        }
+        capcheck.classList[
+            event.getModifierState('CapsLock') ? 'add' : 'remove'
+        ]('on');
+    } else if (event.key === 'Shift') {
+        capcheck.classList.add('ready');
+        capcheck.classList[event.type == 'keydown' ? 'add' : 'remove']('on');
     }
 }
-
-document.addEventListener('keydown', testCapsLock);
-document.addEventListener('keyup', testCapsLock);
 
 function turnoffcover(a) {
     cover.classList.toggle('off');
