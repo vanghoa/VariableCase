@@ -232,6 +232,9 @@ function testCapsLock(event) {
         ]('on');
     } else if (event.key === 'Shift') {
         capcheck.classList.add('ready');
+        if (event.getModifierState('CapsLock')) {
+            return;
+        }
         capcheck.classList[event.type == 'keydown' ? 'add' : 'remove']('on');
     }
 }
