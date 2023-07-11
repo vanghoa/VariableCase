@@ -75,8 +75,8 @@ p {
     position: relative;
     top: calc(0.09rem * var(--txtarea_fontsz) / 3);
     height: calc(1rem * var(--txtarea_fontsz) / 3);
-    box-shadow: 0px calc(var(--ratio) * -10px) calc(var(--ratio) * 13px)
-        calc(var(--ratio) * -10px) rgba(0, 0, 0, 0.6);
+    box-shadow: 0px calc(var(--ratio) * -0.5rem) calc(var(--ratio) * 0.65rem)
+        calc(var(--ratio) * -0.5rem) rgba(0, 0, 0, 0.6);
 }
 
 #textarea {
@@ -172,13 +172,13 @@ h1 span:hover {
 .flex a {
     cursor: pointer;
     transition: padding-top 0.5s;
-    box-shadow: 0px -5px 8px 2.5px rgba(0, 0, 0, 0.192) inset;
-    border-radius: 8px;
+    box-shadow: 0px -0.2rem 0.4rem 0.125rem rgba(0, 0, 0, 0.192) inset;
+    border-radius: 0.4rem;
 }
 
 .togglebutton:active,
 .flex a:active {
-    box-shadow: 0px 5px 8px 2.5px rgba(0, 0, 0, 0.192) inset;
+    box-shadow: 0px 0.2rem 0.4rem 0.125rem rgba(0, 0, 0, 0.192) inset;
     padding-bottom: 0.25rem;
 }
 
@@ -284,12 +284,24 @@ body.shownotes p {
 }
 
 #slidecontainer span.cap {
-    box-shadow: 0px -5px 8px 2.5px rgba(0, 0, 0, 0.516) inset;
-    border-radius: 8px;
+    box-shadow: 0px -0.2rem 0.4rem 0.125rem rgba(0, 0, 0, 0.516) inset;
+    border-radius: 0.4rem;
     padding: 0 4px;
 }
 h1 span:hover {
-    box-shadow: 0px -5px 8px 2.5px rgba(0, 0, 0, 0.199) inset;
-    border-radius: 8px;
+    box-shadow: 0px -0.2rem 0.4rem 0.125rem rgba(0, 0, 0, 0.199) inset;
+    border-radius: 0.4rem;
     padding: 0 4px;
+}
+
+@media only screen and (max-width: 700px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    html {
+        font-size: 12px;
+    }
 }
